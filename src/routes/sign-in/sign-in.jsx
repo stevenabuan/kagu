@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 import {
@@ -18,8 +17,6 @@ import {
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import ImageSignIn from "../../assets/signin-image.jpg";
-// import ImageSignUp from "../../assets/signup-img.jpg";
-// import SignUpForm from "../../components/sign-up-form/sign-up-form";
 import "./sign-in.scss";
 
 const defaultFormFields = {
@@ -30,11 +27,16 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
   const [alert, setAlert] = useState(false);
   const [alertContent, setAlertContent] = useState("");
 
   const resestFormFields = () => {
     setFormFields(defaultFormFields);
+  };
+
+  const logGoogleUser = async () => {
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async (event) => {
@@ -44,8 +46,16 @@ const SignInForm = () => {
       await signInAuthUserWithEmailAndPassword(email, password);
       resestFormFields();
     } catch (error) {
-      setAlertContent("No account created");
-      setAlert(true);
+      console.log(error);
+      if (error.code === "auth/user-not-found") {
+        setAlertContent("Account not found!");
+        setAlert(true);
+      } else if (error.code === "auth/wrong-password") {
+        setAlertContent("Wrong Password!");
+        setAlert(true);
+      } else {
+        console.log("error creating user");
+      }
     }
   };
 
@@ -55,30 +65,6 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    createUserDocumentFromAuth(user);
-  };
-
-  // const SignIn = () => {
-  // const logGoogleUser = async () => {
-  //   const { user } = await signInWithGooglePopup();
-  //   const userDocRef = createUserDocumentFromAuth(user);
-  // };
-
-  // return (
-  //   <div>
-  //     <h1>Sign-In</h1>
-  //     <button
-  //       onClick={() => {
-  //         logGoogleUser();
-  //       }}
-  //     >
-  //       Sign-in with Google Popup
-  //     </button>
-  //     {/* <SignUpForm /> */}
-  //   </div>
-  // );
   return (
     <div>
       <Container maxWidth="lg">
@@ -136,18 +122,12 @@ const SignInForm = () => {
                       value={password}
                     />
 
-                    <Button
-                      // sx={{ maxWidth: 100 }}
-                      // color="secondary"
-                      variant="contained"
-                      type="submit"
-                    >
+                    <Button variant="contained" type="submit">
                       Continue
                     </Button>
                     <Typography sx={{ textAlign: "center" }}>
                       -- or --
                     </Typography>
-                    {/* <p>--- or ---</p> */}
                     <Button
                       variant="outlined"
                       sx={{ mx: "auto" }}
@@ -164,9 +144,6 @@ const SignInForm = () => {
                       />
                       Sign-in with Google
                     </Button>
-                    {/* <Box>
-                      <p>Don't have an account yet? </p>
-                    </Box> */}
                     <Button>
                       <Link to={"/signup"}>Create an account</Link>
                     </Button>

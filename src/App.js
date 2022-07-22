@@ -3,10 +3,7 @@ import Home from "./routes/home/home.jsx";
 import Navigation from "./routes/navigation/navigation.jsx";
 import SignInForm from "./routes/sign-in/sign-in.jsx";
 import SignUpForm from "./components/sign-up-form/sign-up-form.jsx";
-
-const Shop = () => {
-  return <div>I am shop</div>;
-};
+import Shop from "./routes/shop/shop.jsx";
 
 const App = () => {
   return (

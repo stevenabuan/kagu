@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import ImageSignUp from "../../assets/signup-img.jpg";
 import "./sign-up-form.scss";
-
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -47,6 +46,7 @@ const SignUpForm = () => {
         email,
         password
       );
+
       await createUserDocumentFromAuth(user, { displayName });
       resestFormFields();
     } catch (error) {
@@ -142,12 +142,7 @@ const SignUpForm = () => {
                       value={confirmPassword}
                     />
 
-                    <Button
-                      // sx={{ maxWidth: 100 }}
-                      // color="secondary"
-                      variant="contained"
-                      type="submit"
-                    >
+                    <Button variant="contained" type="submit">
                       Submit
                     </Button>
                   </Stack>

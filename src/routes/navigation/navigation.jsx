@@ -1,34 +1,25 @@
 import { Outlet, Link } from "react-router-dom";
-import { Fragment } from "react";
-import {
-  Tooltip,
-  Container,
-  Divider,
-  // AppBar,
-  // Toolbar,
-  // IconButton,
-  // Typography,
-} from "@mui/material";
+import { Fragment, useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
+import { CartContext } from "../../contexts/cart.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+import CartIcon from "../../components/cart-icon/cart-icon";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown";
+
+import { Tooltip, Container, Divider } from "@mui/material";
 import mainLogo from "../../assets/kagu-main-logo.png";
-// import ChairSharpIcon from "@mui/icons-material/ChairSharp";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
+// import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import SearchIcon from "@mui/icons-material/Search";
 import "./navigation.scss";
 
 const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
+
   return (
     <Fragment>
-      {/* <Container maxWidth="xl">
-        <AppBar position="static" color="inherit">
-          <Toolbar>
-            <IconButton size="large" edge="start">
-              <ChairSharpIcon />
-            </IconButton>
-            <Typography variant="h6" component="div">
-              KAGU
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Container> */}
-
       <Container maxWidth="xl">
         <div className="navigation">
           <Link className="logo-container" to={"/"}>
@@ -51,21 +42,29 @@ const Navigation = () => {
             </Tooltip>
             <Tooltip title="search">
               <Link className="nav-link" to={"/search"}>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </Link>
-            </Tooltip>
-            <Tooltip title="sign-in">
-              <Link className="nav-link" to={"/signin"}>
-                <i class="fa-solid fa-user"></i>
+                <SearchIcon />
               </Link>
             </Tooltip>
 
             <Tooltip title="shopping cart">
-              <Link className="nav-link" to={"/cart"}>
-                <i class="fas fa-shopping-cart"></i>
-              </Link>
+              <CartIcon />
             </Tooltip>
+
+            {currentUser ? (
+              <Tooltip title="sign-out">
+                <Link className="nav-link" onClick={signOutUser} to={"/"}>
+                  <LogoutIcon />
+                </Link>
+              </Tooltip>
+            ) : (
+              <Tooltip title="sign-in">
+                <Link className="nav-link" to={"/signin"}>
+                  <LoginIcon />
+                </Link>
+              </Tooltip>
+            )}
           </div>
+          {isCartOpen && <CartDropdown />}
         </div>
 
         <Divider variant="middle" textAlign="center" sx={{ maxWidth: "xl" }} />
