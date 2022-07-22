@@ -1,0 +1,36 @@
+.navigation {
+  max-height: 3.5rem;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo-container {
+    width: 5rem;
+    padding: 1.3rem;
+  }
+
+  .nav-links-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .nav-link {
+      padding: 1rem;
+      cursor: pointer;
+    }
+  }
+}
+hr {
+  margin-bottom: 0.2rem;
+}
+.mid-navlinks-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  .nav-link {
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
+}
