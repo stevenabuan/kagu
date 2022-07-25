@@ -8,7 +8,7 @@ import "./cart-icon.scss";
 import React from "react";
 
 const CartIcon = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
   const toggleIsCartOpen = () => {
     setIsCartOpen(!isCartOpen);
@@ -16,11 +16,9 @@ const CartIcon = () => {
 
   return (
     <div className="cart-icon-container" onClick={toggleIsCartOpen}>
-      <Badge badgeContent={0} showZero color="primary">
+      <Badge badgeContent={cartCount} showZero color="primary">
         <ShoppingCartOutlinedIcon />
       </Badge>
-
-      {/* <span className="item-count">0</span> */}
     </div>
   );
 };
