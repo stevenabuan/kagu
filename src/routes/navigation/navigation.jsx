@@ -35,11 +35,11 @@ const Navigation = () => {
                 shop
               </Link>
             </div>
-            <Tooltip title="contact">
+            {/* <Tooltip title="contact">
               <Link className="nav-link" to={"/contact"}>
                 contact
               </Link>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip title="search">
               <Link className="nav-link" to={"/search"}>
                 <SearchIcon />
@@ -71,27 +71,27 @@ const Navigation = () => {
 
         <div className="mid-navlinks-container">
           <div>
-            <Link className="nav-link" to={"/livingroom"}>
+            <Link className="nav-link" to={"/shop/livingroom"}>
               livingroom
             </Link>
           </div>
           <div>
-            <Link className="nav-link" to={"/bedroom"}>
+            <Link className="nav-link" to={"/shop/bedroom"}>
               bedroom
             </Link>
           </div>
           <div>
-            <Link className="nav-link" to={"/diningroom"}>
+            <Link className="nav-link" to={"/shop/diningroom"}>
               diningroom
             </Link>
           </div>
           <div>
-            <Link className="nav-link" to={"/office"}>
+            <Link className="nav-link" to={"/shop/office"}>
               office
             </Link>
           </div>
           <div>
-            <Link className="nav-link" to={"/decors"}>
+            <Link className="nav-link" to={"/shop/decors"}>
               decors
             </Link>
           </div>
