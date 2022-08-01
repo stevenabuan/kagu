@@ -1,4 +1,5 @@
 import heroImage from "../../assets/hero-chair.png";
+import Footer from "../../components/footer/footer";
 
 import {
   Button,
@@ -65,6 +66,7 @@ const Home = () => {
             </Box>
           </Box>
         </Container>
+        <Footer />
       </ThemeProvider>
     </div>
   );
