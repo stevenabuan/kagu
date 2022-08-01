@@ -13,12 +13,14 @@ const Category = () => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
   return (
-    <div className="category-container">
-      {/* <p>{category}</p> */}
-      {products &&
-        products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+    <div>
+      <p className="category-title">{category.toUpperCase()}</p>
+      <div className="category-container">
+        {products &&
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+      </div>
     </div>
   );
 };

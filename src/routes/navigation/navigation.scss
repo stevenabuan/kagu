@@ -34,3 +34,18 @@ hr {
     cursor: pointer;
   }
 }
+
+@media (max-width: 600px) {
+  .mid-navlinks-container {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .mid-navlinks-container {
+    justify-content: space-evenly;
+    .nav-link {
+      padding: 1rem;
+    }
+  }
+}

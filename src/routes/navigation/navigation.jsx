@@ -10,7 +10,6 @@ import { Tooltip, Container, Divider } from "@mui/material";
 import mainLogo from "../../assets/kagu-main-logo.png";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
-// import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import "./navigation.scss";
 
@@ -29,27 +28,21 @@ const Navigation = () => {
               style={{ height: "2.5rem" }}
             />
           </Link>
+
           <div className="nav-links-container">
             <div>
               <Link className="nav-link" to={"/shop"}>
                 shop
               </Link>
             </div>
-            {/* <Tooltip title="contact">
-              <Link className="nav-link" to={"/contact"}>
-                contact
-              </Link>
-            </Tooltip> */}
-            <Tooltip title="search">
+            {/* <Tooltip title="search">
               <Link className="nav-link" to={"/search"}>
                 <SearchIcon />
               </Link>
-            </Tooltip>
-
+            </Tooltip> */}
             <Tooltip title="shopping cart">
               <CartIcon />
             </Tooltip>
-
             {currentUser ? (
               <Tooltip title="sign-out">
                 <Link className="nav-link" onClick={signOutUser} to={"/"}>

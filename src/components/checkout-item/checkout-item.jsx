@@ -2,6 +2,9 @@ import { useContext } from "react";
 import "./checkout-item.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import { CartContext } from "../../contexts/cart.context";
+import { Button, Box } from "@mui/material";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
@@ -15,27 +18,24 @@ const CheckoutItem = ({ cartItem }) => {
 
   return (
     <div className="checkout-item-container">
-      <div className="image-container">
-        <img src={imageUrl} alt={`${name}`} />
-      </div>
+      <img className="checkout-img" src={imageUrl} alt={`${name}`} />
+
       <span className="name">{name}</span>
-      <span className="qunatity">
-        <div className="arrow" onClick={removeItemHandler}>
-          &lt;
-        </div>
-        <span className="value">{quantity}</span>
-        <div className="arrow" onClick={addItemHandler}>
-          &gt;
-        </div>
-      </span>
+      <Box className="quantity-container">
+        <Button onClick={removeItemHandler}>
+          <RemoveIcon />
+        </Button>
+        {quantity}
+        <Button onClick={addItemHandler}>
+          <AddIcon />
+        </Button>
+      </Box>
       <span className="price"> {price} </span>
-      <div className="remove-button" onClick={clearItemHandler}>
+      <Button onClick={clearItemHandler}>
         <CloseIcon />
-      </div>
+      </Button>
     </div>
   );
 };
 
 export default CheckoutItem;
-
-// &lt; &gt;

@@ -38,8 +38,13 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () =>
-  signInWithPopup(auth, googleProvider);
+export const signInWithGooglePopup = () => {
+  try {
+    signInWithPopup(auth, googleProvider);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const db = getFirestore();
 
