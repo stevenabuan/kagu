@@ -6,14 +6,10 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown";
 
-import { Tooltip, Container, Divider, Box, Button } from "@mui/material";
+import { Tooltip, Container, Divider } from "@mui/material";
 import mainLogo from "../../assets/kagu-main-logo.png";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
-import HomeIcon from "@mui/icons-material/Home";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-// import PersonIcon from "@mui/icons-material/Person";
-import StoreIcon from "@mui/icons-material/Store";
 import "./navigation.scss";
 
 const Navigation = () => {
@@ -87,21 +83,6 @@ const Navigation = () => {
             </Link>
           </div>
         </div>
-
-        <Box className="bottom-nav">
-          <Button href="/">
-            <HomeIcon />
-          </Button>
-          <Button href="/shop">
-            <StoreIcon />
-          </Button>
-          <Button href="/checkout">
-            <ShoppingCartIcon />
-          </Button>
-          {/* <Button>
-            <PersonIcon />
-          </Button> */}
-        </Box>
 
         <Outlet />
       </Container>

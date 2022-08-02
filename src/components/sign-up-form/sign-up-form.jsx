@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Stack,
   TextField,
   Button,
   Grid,
-  Box,
   Container,
-  Paper,
   Alert,
 } from "@mui/material";
 import ImageSignUp from "../../assets/signup-img.jpg";
@@ -66,91 +65,145 @@ const SignUpForm = () => {
   return (
     <div>
       <Container maxWidth="lg">
-        <Paper elevation={8}>
-          <Grid
-            container
-            sx={{
-              alignItems: "center",
-              justifyContent: "center",
-              mt: "1rem",
-            }}
-          >
-            <Grid item xs={12} sm={6}>
-              <Box xs={12} sm={6}>
-                <img
-                  className="sign-up-image"
-                  src={ImageSignUp}
-                  alt="ImageSignUp"
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} px={4.5}>
-              {alert ? (
-                <Alert severity="error" mb={2}>
-                  {alertContent}
-                </Alert>
-              ) : (
-                <></>
-              )}
-              <Box sx={{ marginBottom: 2, fontSize: 40, marginTop: 2 }}>
-                Sign up
-              </Box>
-              <Stack>
-                <form onSubmit={handleSubmit}>
-                  <Stack spacing={3.5}>
-                    <TextField
-                      color="secondary"
-                      label="Display Name"
-                      type="text"
-                      variant="standard"
-                      required
-                      onChange={handleChange}
-                      name="displayName"
-                      value={displayName}
-                    />
-
-                    <TextField
-                      color="secondary"
-                      label="Email"
-                      type="email"
-                      variant="standard"
-                      required
-                      onChange={handleChange}
-                      name="email"
-                      value={email}
-                    />
-
-                    <TextField
-                      color="secondary"
-                      label="Password"
-                      type="password"
-                      variant="standard"
-                      required
-                      onChange={handleChange}
-                      name="password"
-                      value={password}
-                    />
-
-                    <TextField
-                      color="secondary"
-                      label="Confirm Password"
-                      type="password"
-                      variant="standard"
-                      required
-                      onChange={handleChange}
-                      name="confirmPassword"
-                      value={confirmPassword}
-                    />
-
-                    <Button variant="contained" type="submit">
-                      Submit
-                    </Button>
-                  </Stack>
-                </form>
-              </Stack>
-            </Grid>
+        <Grid
+          className="sign-up-grid"
+          container
+          sx={{
+            alignItems: "center",
+            justifyContent: "center",
+            mt: "1.5rem",
+          }}
+        >
+          <Grid className="signup-img-container" item xs={12} sm={6}>
+            <img
+              className="sign-up-image"
+              src={ImageSignUp}
+              alt="ImageSignUp"
+            />
           </Grid>
-        </Paper>
+          <Grid className="signup-container" item xs={12} sm={6}>
+            {alert ? (
+              <Alert severity="error" mb={2}>
+                {alertContent}
+              </Alert>
+            ) : (
+              <></>
+            )}
+            <p className="signup-text">Sign up</p>
+            <Stack className="signup-form-container">
+              <form onSubmit={handleSubmit}>
+                <Stack spacing={3.5}>
+                  <TextField
+                    sx={{
+                      "& .MuiInputLabel-root": { color: "#039be5" },
+                      "& .MuiFormLabel-root.Mui-focused": {
+                        color: "#039be5",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        "& > fieldset": { borderColor: "#039be5" },
+                      },
+                      "& .MuiOutlinedInput-root.Mui-focused": {
+                        "& > fieldset": {
+                          borderColor: "#039be5",
+                        },
+                      },
+                    }}
+                    label="Display Name"
+                    type="text"
+                    variant="outlined"
+                    required
+                    onChange={handleChange}
+                    name="displayName"
+                    value={displayName}
+                  />
+
+                  <TextField
+                    sx={{
+                      "& .MuiInputLabel-root": { color: "#039be5" },
+                      "& .MuiFormLabel-root.Mui-focused": {
+                        color: "#039be5",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        "& > fieldset": { borderColor: "#039be5" },
+                      },
+                      "& .MuiOutlinedInput-root.Mui-focused": {
+                        "& > fieldset": {
+                          borderColor: "#039be5",
+                        },
+                      },
+                    }}
+                    label="Email"
+                    type="email"
+                    variant="outlined"
+                    required
+                    onChange={handleChange}
+                    name="email"
+                    value={email}
+                  />
+
+                  <TextField
+                    sx={{
+                      "& .MuiInputLabel-root": { color: "#039be5" },
+                      "& .MuiFormLabel-root.Mui-focused": {
+                        color: "#039be5",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        "& > fieldset": { borderColor: "#039be5" },
+                      },
+                      "& .MuiOutlinedInput-root.Mui-focused": {
+                        "& > fieldset": {
+                          borderColor: "#039be5",
+                        },
+                      },
+                    }}
+                    label="Password"
+                    type="password"
+                    variant="outlined"
+                    required
+                    onChange={handleChange}
+                    name="password"
+                    value={password}
+                  />
+
+                  <TextField
+                    sx={{
+                      "& .MuiInputLabel-root": { color: "#039be5" },
+                      "& .MuiFormLabel-root.Mui-focused": {
+                        color: "#039be5",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        "& > fieldset": { borderColor: "#039be5" },
+                      },
+                      "& .MuiOutlinedInput-root.Mui-focused": {
+                        "& > fieldset": {
+                          borderColor: "#039be5",
+                        },
+                      },
+                    }}
+                    label="Confirm Password"
+                    type="password"
+                    variant="outlined"
+                    required
+                    onChange={handleChange}
+                    name="confirmPassword"
+                    value={confirmPassword}
+                  />
+
+                  <Button
+                    className="sign-up-btn"
+                    variant="contained"
+                    type="submit"
+                  >
+                    Submit
+                  </Button>
+                  <Button>
+                    <Link to={"/signin"}>Login</Link>
+                  </Button>
+                </Stack>
+              </form>
+            </Stack>
+          </Grid>
+        </Grid>
       </Container>
     </div>
   );

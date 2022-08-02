@@ -1,4 +1,51 @@
+.sign-in-grid {
+  box-shadow: 2px 2px 5px gray;
+  .welcome-text {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+.signin-container {
+  padding: 0 5rem;
+}
+
 .sign-in-image {
-  max-width: 35rem;
+  width: 36rem;
   height: 50rem;
+}
+.signin-form-container {
+  margin-top: 2rem;
+  .sign-in-btn {
+    background-color: #039be5;
+  }
+}
+
+@media (max-width: 900px) {
+  .sign-in-grid {
+    box-shadow: 0 0;
+  }
+  .signin-container {
+    padding: 0;
+  }
+  .sign-in-image {
+    display: none;
+  }
+  .welcome-text {
+    font-size: 1.5rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .signin-container {
+    padding: 0 3rem;
+  }
+  .sign-in-image {
+    width: 31rem;
+  }
+  .welcome-text {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 }
