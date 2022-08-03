@@ -11,6 +11,7 @@ const Footer = () => {
         position: "absolute",
         fontSize: "0.8rem",
         justifySelf: "center",
+        marginBottom: "0.6rem",
       }}
       maxWidth="xl"
     >

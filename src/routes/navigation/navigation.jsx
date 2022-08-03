@@ -34,9 +34,7 @@ const Navigation = () => {
                 shop
               </Link>
             </div>
-            <Tooltip title="shopping cart">
-              <CartIcon />
-            </Tooltip>
+            <CartIcon />
             {currentUser ? (
               <Tooltip title="sign-out">
                 <Link className="nav-link" onClick={signOutUser} to={"/"}>
