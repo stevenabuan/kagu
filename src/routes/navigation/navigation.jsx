@@ -1,7 +1,11 @@
-import { Outlet, Link } from "react-router-dom";
 import { Fragment, useContext } from "react";
+import { Outlet, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
+
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown";
@@ -13,6 +17,9 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import "./navigation.scss";
 
 const Navigation = () => {
+  // const currentUser = useSelector(selectCurrentUser);
+  // const { isCartOpen } = useContext(CartContext);
+
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
 
@@ -35,6 +42,7 @@ const Navigation = () => {
               </Link>
             </div>
             <CartIcon />
+
             {currentUser ? (
               <Tooltip title="sign-out">
                 <Link className="nav-link" onClick={signOutUser} to={"/"}>
@@ -49,6 +57,7 @@ const Navigation = () => {
               </Tooltip>
             )}
           </div>
+
           {isCartOpen && <CartDropdown />}
         </div>
 
@@ -71,13 +80,13 @@ const Navigation = () => {
             </Link>
           </div>
           <div>
-            <Link className="nav-link" to={"/shop/office"}>
-              office
+            <Link className="nav-link" to={"/shop/bathroom"}>
+              bathroom
             </Link>
           </div>
           <div>
-            <Link className="nav-link" to={"/shop/decors"}>
-              decors
+            <Link className="nav-link" to={"/shop/office"}>
+              office
             </Link>
           </div>
         </div>

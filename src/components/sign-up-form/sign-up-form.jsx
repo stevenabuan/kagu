@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
+
+import {
   Stack,
   TextField,
   Button,
@@ -10,10 +15,6 @@ import {
 } from "@mui/material";
 import ImageSignUp from "../../assets/signup-img.jpg";
 import "./sign-up-form.scss";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
   displayName: "",
@@ -36,7 +37,8 @@ const SignUpForm = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Password do not match");
+      setAlertContent("Passwords do not match!");
+      setAlert(true);
       return;
     }
 
@@ -52,7 +54,7 @@ const SignUpForm = () => {
       if (error.code === "auth/email-already-in-use") {
         setAlertContent("Email already in-use");
         setAlert(true);
-      } else console.log("error creating user");
+      } else console.log("error creating user", error);
     }
   };
 

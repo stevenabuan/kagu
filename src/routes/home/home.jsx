@@ -1,5 +1,8 @@
 import heroImage from "../../assets/hero-chair.png";
 import Footer from "../../components/footer/footer";
+import { Outlet } from "react-router-dom";
+import Testimonials from "../../components/testimonials/testimonials";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 import {
   Button,
@@ -8,6 +11,7 @@ import {
   createTheme,
   colors,
   ThemeProvider,
+  Stack,
 } from "@mui/material";
 import "./home.scss";
 
@@ -65,9 +69,15 @@ const Home = () => {
               <img className="home-img" src={heroImage} alt="heroImage" />
             </Box>
           </Box>
+          <Box sx={{ textAlign: "center" }}>
+            <KeyboardDoubleArrowDownIcon fontSize="large" />
+          </Box>
+          <Testimonials />
         </Container>
+
         <Footer />
       </ThemeProvider>
+      <Outlet />
     </div>
   );
 };

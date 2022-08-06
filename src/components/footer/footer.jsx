@@ -3,12 +3,11 @@ import { Stack, Divider, Container } from "@mui/material";
 const Footer = () => {
   return (
     <Container
-      className="bottom-nav"
       sx={{
         bottom: 0,
         right: 0,
         left: 0,
-        position: "absolute",
+        position: "fixed",
         fontSize: "0.8rem",
         justifySelf: "center",
         marginBottom: "0.6rem",

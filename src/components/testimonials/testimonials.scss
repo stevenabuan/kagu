@@ -1,0 +1,38 @@
+.slick-slide > div {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}
+
+.testimonial-container {
+  margin: 7rem 0;
+  text-align: center;
+
+  .testimonial-card-container {
+    box-shadow: 1px solid #000;
+    text-align: center;
+    margin: 1rem auto;
+    background: linear-gradient(-210deg, #fff6f1, #ddf7ff);
+    .testimonial-img {
+      width: 50px;
+      justify-self: center;
+      margin: 0.3rem auto;
+    }
+    .testimonial-name {
+      font-style: italic;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .testimonial-container {
+    margin: 3rem 0;
+  }
+}
+
+// @media (max-width: 900px) {
+//   .testimonial-container {
+//     margin: 1rem 0;
+//   }
+// }

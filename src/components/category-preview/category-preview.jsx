@@ -1,7 +1,8 @@
 import ProductCard from "../product-card/product-card";
+
 import { Link } from "react-router-dom";
-import "./category-preview.scss";
 import { Grid, Box } from "@mui/material";
+import "./category-preview.scss";
 
 import React from "react";
 
@@ -17,8 +18,8 @@ const CategoryPreview = ({ title, products }) => {
         {products
           .filter((_, idx) => idx < 4)
           .map((product) => (
-            <Grid item xs={12} md={6} lg={3}>
-              <ProductCard key={product.id} product={product} />
+            <Grid key={product.id} item xs={12} md={6} lg={3}>
+              <ProductCard product={product} />
             </Grid>
           ))}
       </Grid>
