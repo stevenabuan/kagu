@@ -11,7 +11,6 @@ import {
   createTheme,
   colors,
   ThemeProvider,
-  Stack,
 } from "@mui/material";
 import "./home.scss";
 

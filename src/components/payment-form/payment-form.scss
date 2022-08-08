@@ -1,0 +1,12 @@
+.payment-container {
+  display: flex;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding: 0 1rem;
+  .payment-form-container {
+    // height: 200px;
+    min-width: 300px;
+  }
+}

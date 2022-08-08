@@ -2,7 +2,6 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
@@ -17,11 +16,13 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import "./navigation.scss";
 
 const Navigation = () => {
-  // const currentUser = useSelector(selectCurrentUser);
-  // const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(selectCurrentUser);
+  const { isCartOpen, clearCart } = useContext(CartContext);
 
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const logout = () => {
+    clearCart();
+    signOutUser();
+  };
 
   return (
     <Fragment>
@@ -45,7 +46,7 @@ const Navigation = () => {
 
             {currentUser ? (
               <Tooltip title="sign-out">
-                <Link className="nav-link" onClick={signOutUser} to={"/"}>
+                <Link className="nav-link" onClick={logout} to={"/"}>
                   <LogoutIcon />
                 </Link>
               </Tooltip>

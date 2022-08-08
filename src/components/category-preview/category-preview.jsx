@@ -2,6 +2,7 @@ import ProductCard from "../product-card/product-card";
 
 import { Link } from "react-router-dom";
 import { Grid, Box } from "@mui/material";
+
 import "./category-preview.scss";
 
 import React from "react";

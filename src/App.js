@@ -17,19 +17,19 @@ import Checkout from "./routes/checkout/checkout.jsx";
 import { setCurrentUser } from "./store/user/user.action";
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChangedListener((user) => {
-  //     if (user) {
-  //       createUserDocumentFromAuth(user);
-  //     }
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
 
-  //     setCurrentUser(user);
-  //   });
+      dispatch(setCurrentUser(user));
+    });
 
-  //   return unsubscribe;
-  // }, [dispatch]);
+    return unsubscribe;
+  }, [dispatch]);
 
   return (
     <Routes>

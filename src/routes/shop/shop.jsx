@@ -11,16 +11,16 @@ import { setCategories } from "../../store/categories/categories.action";
 import "./shop.scss";
 
 const Shop = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const getCategoriesMap = async () => {
-  //     const categoriesArray = await getCategoriesAndDocuments("categories");
-  //     dispatch(setCategories(categoriesArray));
-  //   };
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoriesArray = await getCategoriesAndDocuments("categories");
+      dispatch(setCategories(categoriesArray));
+    };
 
-  //   getCategoriesMap();
-  // }, [dispatch]);
+    getCategoriesMap();
+  }, [dispatch]);
 
   return (
     <Routes>
