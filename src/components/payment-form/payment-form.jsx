@@ -1,16 +1,15 @@
-// import { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import { selectCartTotal } from "../../store/cart/cart.selector";
 
 import { Button, Box } from "@mui/material";
 
 import "./payment-form.scss";
 
 const PaymentForm = () => {
-  const { cartTotal } = useContext(CartContext);
+  const cartTotal = useSelector(selectCartTotal);
+
   const stripe = useStripe();
   const elements = useElements();
 

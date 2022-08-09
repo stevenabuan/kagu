@@ -1,5 +1,7 @@
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { addItemToCart } from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
+
 import { Button, Stack, Paper, Rating } from "@mui/material";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 
@@ -7,9 +9,10 @@ import "./product-card.scss";
 
 const ProductCard = ({ product }) => {
   const { name, price, imageUrl, color, material } = product;
-  const { addItemToCart } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
 
-  const addProductToCart = () => addItemToCart(product);
+  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   return (
     <Paper>

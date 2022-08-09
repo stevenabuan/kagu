@@ -2,7 +2,6 @@ import heroImage from "../../assets/hero-chair.png";
 import Footer from "../../components/footer/footer";
 import { Outlet } from "react-router-dom";
 import Testimonials from "../../components/testimonials/testimonials";
-import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 import {
   Button,
@@ -68,9 +67,7 @@ const Home = () => {
               <img className="home-img" src={heroImage} alt="heroImage" />
             </Box>
           </Box>
-          <Box sx={{ textAlign: "center" }}>
-            <KeyboardDoubleArrowDownIcon fontSize="large" />
-          </Box>
+          <Box sx={{ textAlign: "center" }}>scroll down</Box>
           <Testimonials />
         </Container>
 
