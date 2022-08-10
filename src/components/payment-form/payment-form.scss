@@ -6,7 +6,25 @@
   background-color: transparent;
   padding: 0 1rem;
   .payment-form-container {
-    // height: 200px;
-    min-width: 300px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    .payment-label {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .payment-container {
+    padding: 0 1rem;
+    .payment-form-container {
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      .payment-label {
+        margin-bottom: 0.5rem;
+      }
+    }
   }
 }
