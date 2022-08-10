@@ -45,7 +45,6 @@ const SignInForm = () => {
       await signInAuthUserWithEmailAndPassword(email, password);
       resestFormFields();
     } catch (error) {
-      console.log(error);
       if (error.code === "auth/user-not-found") {
         setAlertContent("Account not found!");
         setAlert(true);

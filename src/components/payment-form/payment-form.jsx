@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import { Button, Box } from "@mui/material";
+import { Button, Box, Alert } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import "./payment-form.scss";
@@ -20,6 +20,9 @@ const PaymentForm = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const timer = useRef();
+
+  const [alert, setAlert] = useState(false);
+  const [alertContent, setAlertContent] = useState("");
 
   useEffect(() => {
     return () => {
@@ -75,7 +78,8 @@ const PaymentForm = () => {
     if (paymentResult.error) {
       alert(paymentResult.error);
     } else if (paymentResult.paymentIntent.status === "succeeded") {
-      alert("Payment Successful");
+      setAlertContent("Payment Successful!");
+      setAlert(true);
     }
   };
 
@@ -85,8 +89,14 @@ const PaymentForm = () => {
         <label className="payment-label" htmlFor="card-element">
           Credit Card
         </label>
+        {alert ? (
+          <Alert severity="success" color="info" mb={3} sx={{ padding: 0 }}>
+            {alertContent}
+          </Alert>
+        ) : (
+          <></>
+        )}
         <CardElement id="card-element" />
-
         <Button
           onClick={handleButtonClick}
           disabled={isProcessingPayment}

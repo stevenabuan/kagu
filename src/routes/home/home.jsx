@@ -1,7 +1,10 @@
+import { Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import heroImage from "../../assets/hero-chair.png";
 import Footer from "../../components/footer/footer";
-import { Outlet } from "react-router-dom";
 import Testimonials from "../../components/testimonials/testimonials";
+import Popup from "../../components/popup/popup";
 
 import {
   Button,
@@ -10,6 +13,7 @@ import {
   createTheme,
   colors,
   ThemeProvider,
+  Stack,
 } from "@mui/material";
 import "./home.scss";
 
@@ -28,6 +32,19 @@ const theme = createTheme({
 });
 
 const Home = () => {
+  // const [buttonPopup, setButtonPopup] = useState(false);
+  const [timedPopup, setTimedPopup] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimedPopup(true);
+    }, 1000);
+  }, []);
+
+  // const popupOpen = () => {
+  //   setTimedPopup(true);
+  // };
+
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -68,6 +85,22 @@ const Home = () => {
             </Box>
           </Box>
           <Box sx={{ textAlign: "center" }}>scroll down</Box>
+          <Container maxWidth="xl">
+            <Stack
+              className="discount-btn-container"
+              sx={{ maxWidth: "10rem", margin: "3rem auto" }}
+            >
+              {/* <Button
+                className="discount-btn"
+                variant="outlined"
+                onClick={popupOpen}
+              >
+                Get 30% OFF
+              </Button> */}
+              <Popup trigger={timedPopup} setTrigger={setTimedPopup} />
+            </Stack>
+          </Container>
+
           <Testimonials />
         </Container>
 
