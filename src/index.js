@@ -7,7 +7,6 @@ import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./utils/stripe/stripe.utils";
 
 import App from "./App";
-// import { CartProvider } from "./contexts/cart.context";
 import { store } from "./store/store";
 
 import "./index.scss";
@@ -18,11 +17,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        {/* <CartProvider> */}
         <Elements stripe={stripePromise}>
           <App />
         </Elements>
-        {/* </CartProvider> */}
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

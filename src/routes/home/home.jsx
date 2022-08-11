@@ -32,7 +32,6 @@ const theme = createTheme({
 });
 
 const Home = () => {
-  // const [buttonPopup, setButtonPopup] = useState(false);
   const [timedPopup, setTimedPopup] = useState(false);
 
   useEffect(() => {
@@ -40,10 +39,6 @@ const Home = () => {
       setTimedPopup(true);
     }, 1000);
   }, []);
-
-  // const popupOpen = () => {
-  //   setTimedPopup(true);
-  // };
 
   return (
     <div>
@@ -90,13 +85,6 @@ const Home = () => {
               className="discount-btn-container"
               sx={{ maxWidth: "10rem", margin: "3rem auto" }}
             >
-              {/* <Button
-                className="discount-btn"
-                variant="outlined"
-                onClick={popupOpen}
-              >
-                Get 30% OFF
-              </Button> */}
               <Popup trigger={timedPopup} setTrigger={setTimedPopup} />
             </Stack>
           </Container>
