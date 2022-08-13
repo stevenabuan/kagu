@@ -79,7 +79,6 @@ export const createUserDocumentFromAuth = async (
   if (!userAuth) return;
 
   const userDocRef = doc(db, "users", userAuth.uid);
-
   const userSnapshot = await getDoc(userDocRef);
 
   //   if user does not exist // create user to database

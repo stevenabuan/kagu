@@ -1,4 +1,4 @@
-import { Stack, Divider, Container, Link } from "@mui/material";
+import { Stack, Divider, Container } from "@mui/material";
 
 const Footer = () => {
   return (
@@ -18,32 +18,6 @@ const Footer = () => {
       <Stack textAlign="center">
         <p>Copyright &copy; KAGU 2022 </p>
         <p>All rights reserved.</p>
-        <p>
-          Developers |
-          <Link
-            target="_blank"
-            sx={{ textDecoration: "none", marginLeft: "0.2rem" }}
-            href="https://stevenabuan-portfolio.netlify.app/"
-          >
-            Steven
-          </Link>
-          |
-          <Link
-            target="_blank"
-            sx={{ textDecoration: "none", marginLeft: "0.2rem" }}
-            href="#"
-          >
-            Robert
-          </Link>
-          |
-          <Link
-            target="_blank"
-            sx={{ textDecoration: "none", marginLeft: "0.2rem" }}
-            href="#"
-          >
-            Neil
-          </Link>
-        </p>
       </Stack>
     </Container>
   );
